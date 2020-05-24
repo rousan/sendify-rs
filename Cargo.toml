@@ -1,0 +1,22 @@
+[package]
+name = "sendify"
+version = "1.0.0"
+description = "An unsafe crate to wrap a reference to make it Send + Sync."
+homepage = "https://github.com/rousan/sendify-rs"
+repository = "https://github.com/rousan/sendify-rs"
+keywords = ["rust", "unsafe", "send", "sync"]
+categories = []
+authors = ["Rousan Ali <hello@rousan.io>"]
+readme = "README.md"
+license = "MIT"
+edition = "2018"
+
+[package.metadata.docs.rs]
+all-features = true
+
+[package.metadata.playground]
+features = ["all"]
+
+[features]
+default = []
+all = []
