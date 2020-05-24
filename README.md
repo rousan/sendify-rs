@@ -19,7 +19,7 @@ sendify = "1.0"
 ```
 
 ## Example
-
+ 
 ```rust
 use sendify::Sendify;
 use std::thread;
