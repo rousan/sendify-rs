@@ -1,4 +1,5 @@
-//! An unsafe crate to wrap a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
+//! An unsafe crate to wrap a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html)
+//! to be able to transfer it between threads.
 //! Make sure the reference is still valid when unwrapping it.
 //!
 //! # Examples
@@ -27,8 +28,10 @@
 //! ```
 
 pub use self::sendify::Sendify;
+pub use self::sendify_mut::SendifyMut;
 
 mod sendify;
+mod sendify_mut;
 
 /// Wraps an immutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
 pub fn wrap<T>(val: &T) -> Sendify<T> {
@@ -36,6 +39,6 @@ pub fn wrap<T>(val: &T) -> Sendify<T> {
 }
 
 /// Wraps a mutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
-pub fn wrap_mut<T>(val: &mut T) -> Sendify<T> {
-    Sendify::wrap_mut(val)
+pub fn wrap_mut<T>(val: &mut T) -> SendifyMut<T> {
+    SendifyMut::wrap(val)
 }

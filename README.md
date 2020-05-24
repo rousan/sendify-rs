@@ -5,7 +5,7 @@
 
 # sendify-rs
 
-An unsafe crate to wrap a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html). Make sure the reference is still valid when unwrapping it.
+An unsafe crate to wrap a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html) to be able to transfer it between threads. Make sure the reference is still valid when unwrapping it.
 
 [Docs](https://docs.rs/sendify)
 
@@ -15,7 +15,7 @@ Add this to your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-sendify = "1.0"
+sendify = "1.1"
 ```
 
 ## Example
