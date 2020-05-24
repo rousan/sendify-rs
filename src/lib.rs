@@ -4,15 +4,14 @@
 //! # Examples
 //!
 //! ```no_run
-//! use sendify::Sendify;
 //! use std::thread;
-
+//!
 //! fn main() {
 //!     let data = "my string".to_owned();
 //!
 //!     let ref_val = &data;
 //!     // Wrap the reference to make it Send + Sync.
-//!     let sendify_val = Sendify::wrap(ref_val);
+//!     let sendify_val = sendify::wrap(ref_val);
 //!
 //!     thread::spawn(move || {
 //!         // Unwrap the reference, here make sure that reference is still valid otherwise
@@ -30,3 +29,13 @@
 pub use self::sendify::Sendify;
 
 mod sendify;
+
+/// Wraps an immutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
+pub fn wrap<T>(val: &T) -> Sendify<T> {
+    Sendify::wrap(val)
+}
+
+/// Wraps a mutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
+pub fn wrap_mut<T>(val: &mut T) -> Sendify<T> {
+    Sendify::wrap_mut(val)
+}

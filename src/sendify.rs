@@ -1,11 +1,11 @@
-/// Provides methods to wrap a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
+/// Wraps a reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
 pub struct Sendify<T> {
     ptr: Option<*const T>,
     ptr_mut: Option<*mut T>,
 }
 
 impl<T> Sendify<T> {
-    /// Wraps a immutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
+    /// Wraps an immutable reference to make it [`Send`](https://doc.rust-lang.org/nightly/core/marker/trait.Send.html) + [`Sync`](https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html).
     pub fn wrap(val: &T) -> Sendify<T> {
         Sendify {
             ptr: Some(val),
