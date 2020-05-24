@@ -1,4 +1,3 @@
-use sendify::Sendify;
 use std::thread;
 
 fn main() {
@@ -6,7 +5,7 @@ fn main() {
 
     let ref_val = &data;
     // Wrap the reference to make it Send + Sync.
-    let sendify_val = Sendify::wrap(ref_val);
+    let sendify_val = sendify::wrap(ref_val);
 
     thread::spawn(move || {
         // Unwrap the reference, here make sure that reference is still valid otherwise

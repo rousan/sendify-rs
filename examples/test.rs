@@ -1,11 +1,10 @@
-use sendify::Sendify;
 use std::thread;
 
 fn main() {
     let data = "my string".to_owned();
 
     let ref_val = &data;
-    let sendify_val = Sendify::wrap(ref_val);
+    let sendify_val = sendify::wrap(ref_val);
 
     thread::spawn(move || {
         let ref_val = unsafe { sendify_val.unwrap() };
