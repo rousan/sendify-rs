@@ -1,6 +1,6 @@
 [package]
 name = "sendify"
-version = "1.0.1"
+version = "1.1.0"
 description = "An unsafe crate to wrap a reference to make it Send + Sync."
 homepage = "https://github.com/rousan/sendify-rs"
 repository = "https://github.com/rousan/sendify-rs"

@@ -15,7 +15,7 @@ Add this to your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-sendify = "1.0"
+sendify = "1.1"
 ```
 
 ## Example
